@@ -1,0 +1,82 @@
+/* CSS Document */
+body {
+	background-color: black;
+}
+header {
+	align-content: center;
+	height: 500px;
+	background: url({HeaderImage});
+}
+h1 {
+	font-family: "Contrail One", "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+}
+p {
+	
+}
+
+/* Begin CSS styles for custom classes */
+#avatar {
+	
+}
+#description {
+	font-family: "VT323", Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+}
+#intro {
+	margin: 0 auto;
+	text-align: center;
+}
+#navbar {
+	position: sticky;
+	top: 0px;
+	background-color: #A0A0A0;
+	bottom: 0px;	/*border-bottom: 5px solid darkgray;*/
+	padding: auto;
+	height: 36px;
+}
+.command {
+	color: black;
+	font-family: "VT323", Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+	font-size: 24px;
+	padding: 3px 0px;
+	margin: 0px 3px;
+	height: 36px;
+}
+.command a {
+	text-decoration: none;
+}
+#titlebar img {
+	padding: 3px;
+	border-radius: 100%;
+}
+.main {
+	margin-left: 300px;
+	padding: 20px;
+}
+.static {
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+#sidebar {
+	height: 100%;
+	padding: 20px;
+	position: sticky;
+	top: 72px;
+	width: 200px;
+	background-color: #A0A0A0;
+	overflow-x: hidden;
+	border-right: 10px groove;
+}
+#titlebar {
+	position: sticky;
+	top: 39px;
+	background-color: white;
+	height: 30px;
+	border-bottom: 3px solid black;
+	border-top: 3px solid black;
+	outline: 6px solid white;
+	vertical-align: middle;
+	font-family: "VT323", Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+	color: black;
+	font-size: 18px;
+}

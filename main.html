@@ -1,0 +1,484 @@
+<!doctype html>
+<html>
+	
+<head>
+	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Geo|VT323" rel="stylesheet">
+	<link href="styles.css" rel="stylesheet" type="text/css">
+	<title>{Title}</title>
+</head>
+
+<body>
+	<div id="info" class="window">
+		<div class="titlebar">
+			<span>Info</span>
+		</div>
+		<img src="{PortraitURL-128}">
+		<div class="text">
+			<h2>{Title}</h2>
+			<h3>{Description}</h3>
+		</div>
+	</div>
+	<div id="fileman" class="window">
+		<div class="titlebar">
+			<span>{Title}</span>
+		</div>
+		<div id="opbar">
+			<table>
+				<tr>
+					<td><a href="http://tumblr.com/follow/deadarkadia">Follow</a></td>
+					<td><a href="http://tumblr.com/message/deadarkadia">Message</a></td>
+					{block:AskEnabled}
+						<td><a href="/ask">{AskLabel}</a></td>
+					{/block:AskEnabled}
+					<td><form action="/search" method="get">
+						<input type="text" name="q" value="{SearchQuery}"/>
+						<input type="submit" value="Search"/>
+					</form></td>
+				</tr>
+			</table>
+		</div>
+		<div id="container">
+			<div id="sidebar">
+				{block:HasPages}
+					<ul id="pageList">
+						{block:Pages}
+							<il><a href="{URL}">{Label}</a></il>
+						{/block:Pages}
+					</ul>
+				{/block:HasPages}
+		  </div>
+			<div id="postcontainer">
+				{block:Posts}
+				<div id="posts" class="window">
+					<div class="titlebar">
+						<span><a href="{Permalink}">POST#&nbsp;{PostID}</a></span>
+					</div>
+					{block:Text}
+						<div class="post">
+							{block:Title}
+								<h3>
+									<a href="{Permalink}">{Title}</a>
+								</h3>
+							{/block:Title}
+							{Body}
+						</div>
+						<div class="footer">
+							{block:HasTags}
+								<div class="inset">
+									<p>Tags:</p>
+									<ul>
+										{block:Tags}
+											<li>
+												<a href="{TagURL}">#{Tag}</a>
+											</li>
+										{/block:Tags}
+									</ul>
+								</div>
+							{/block:HasTags}
+							{block:RebloggedFrom}
+								<span class="inset">
+									<p>Posted by&nbsp;</p>
+									<span><a href="{ReblogRootURL}">{ReblogRootName}&nbsp;</a></span>
+									<p>Reblogged via&nbsp;</p>
+									<span><a href="{ReblogParentURL}">{ReblogParentName}</a></span>
+								</span>
+							{/block:RebloggedFrom}
+							<span class="inset">
+								<ul class="metadata">
+									{block:Date}
+										<li>{TimeAgo}, {DayofMonth} {Month} {Year}</li>
+									{/block:Date}
+									<li>{ReblogButton}</li>
+									<li>{LikeButton}</li>
+									<li><a href="{Permalink}">{NoteCountWithLabel}</a></li>
+								</ul>
+							</span>
+						</div>
+						
+					{/block:Text}
+
+					{block:Photo} 
+						<div class="post">
+							<img src="{PhotoURL-500}">
+							{block:Caption}
+								<h4>{Caption}</h4>
+							{/block:Caption}
+						</div>
+						<div class="footer">
+							{block:HasTags}
+								<div class="inset">
+									<p>Tags:</p>
+									<ul>
+										{block:Tags}
+											<li>
+												<a href="{TagURL}">#{Tag}</a>
+											</li>
+										{/block:Tags}
+									</ul>
+								</div>
+							{/block:HasTags}
+							{block:RebloggedFrom}
+								<span class="inset">
+									<p>Posted by&nbsp;</p>
+									<span><a href="{ReblogRootURL}">{ReblogRootName}</a></span>
+									<p>Reblogged via&nbsp;</p>
+									<span><a href="{ReblogParentURL}">{ReblogParentName}</a></span>
+								</span>
+							{/block:RebloggedFrom}
+							<span class="inset">
+								<ul class="metadata">
+									{block:Date}
+										<li>{TimeAgo}, {DayofMonth} {Month} {Year}</li>
+									{/block:Date}
+									<li>{ReblogButton}</li>
+									<li>{LikeButton}</li>
+									<li><a href="{Permalink}">{NoteCountWithLabel}</a></li>
+								</ul>
+							</span>
+						</div>
+					{/block:Photo}
+					
+					{block:Panorama}
+						<div class="post">
+							<img src="{PhotoURL-Panorama}">
+							{block:Caption}
+								<h4>{Caption}</h4>
+							{/block:Caption}
+						</div>
+						<div class="footer">
+							{block:HasTags}
+								<div class="inset">
+									<p>Tags:</p>
+									<ul>
+										{block:Tags}
+											<li>
+												<a href="{TagURL}">#{Tag}</a>
+											</li>
+										{/block:Tags}
+									</ul>
+								</div>
+							{/block:HasTags}
+							{block:RebloggedFrom}
+								<span class="inset">
+									<p>Posted by&nbsp;</p>
+									<span><a href="{ReblogRootURL}">{ReblogRootName}</a></span>
+									<p>Reblogged via&nbsp;</p>
+									<span><a href="{ReblogParentURL}">{ReblogParentName}</a></span>
+								</span>
+							{/block:RebloggedFrom}
+							<span class="inset">
+								<ul class="metadata">
+									{block:Date}
+										<li>{TimeAgo}, {DayofMonth} {Month} {Year}</li>
+									{/block:Date}
+									<li>{ReblogButton}</li>
+									<li>{LikeButton}</li>
+									<li><a href="{Permalink}">{NoteCountWithLabel}</a></li>
+								</ul>
+							</span>
+						</div>
+					{/block:Panorama}
+
+					{block:Photoset}
+						{block:Photos}
+						<div class="post">
+							<img src="{PhotoURL-500}">
+							{block:Caption}
+								<h4>{Caption}</h4>
+							{/block:Caption}
+						</div>
+						{/block:Photos}
+						<div class="footer">
+							{block:HasTags}
+								<div class="inset">
+									<p>Tags:</p>
+									<ul>
+										{block:Tags}
+											<li>
+												<a href="{TagURL}">#{Tag}</a>
+											</li>
+										{/block:Tags}
+									</ul>
+								</div>
+							{/block:HasTags}
+							{block:RebloggedFrom}
+								<span class="inset">
+									<p>Posted by&nbsp;</p>
+									<span><a href="{ReblogRootURL}">{ReblogRootName}</a></span>
+									<p>Reblogged via&nbsp;</p>
+									<span><a href="{ReblogParentURL}">{ReblogParentName}</a></span>
+								</span>
+							{/block:RebloggedFrom}
+							<span class="inset">
+								<ul class="metadata">
+									{block:Date}
+										<li>{TimeAgo}, {DayofMonth} {Month} {Year}</li>
+									{/block:Date}
+									<li>{ReblogButton}</li>
+									<li>{LikeButton}</li>
+									<li><a href="{Permalink}">{NoteCountWithLabel}</a></li>
+								</ul>
+							</span>
+						</div>
+					{/block:Photoset}
+					
+					{block:Quote}
+						<div class="post">
+							{Quote}
+						{block:Source}<br>&mdash;{Source}{/block:Source}
+						</div>
+						<div class="footer">
+							{block:HasTags}
+								<div class="inset">
+									<p>Tags:</p>
+									<ul>
+										{block:Tags}
+											<li>
+												<a href="{TagURL}">#{Tag}</a>
+											</li>
+										{/block:Tags}
+									</ul>
+								</div>
+							{/block:HasTags}
+							{block:RebloggedFrom}
+								<span class="inset">
+									<p>Posted by&nbsp;</p>
+									<span><a href="{ReblogRootURL}">{ReblogRootName}</a></span>
+									<p>Reblogged via&nbsp;</p>
+									<span><a href="{ReblogParentURL}">{ReblogParentName}</a></span>
+								</span>
+							{/block:RebloggedFrom}
+							<span class="inset">
+								<ul class="metadata">
+									{block:Date}
+										<li>{TimeAgo}, {DayofMonth} {Month} {Year}</li>
+									{/block:Date}
+									<li>{ReblogButton}</li>
+									<li>{LikeButton}</li>
+									<li><a href="{Permalink}">{NoteCountWithLabel}</a></li>
+								</ul>
+							</span>
+						</div>
+					{/block:Quote}
+
+					{block:Link}
+						<div class="post">
+							<h4><a href="{URL}" {Target}>{Name}</a></h4>
+							{block:Description}
+								<p>{Description}</p>
+							{/block:Description}
+						</div>
+						<div class="footer">
+							{block:HasTags}
+								<div class="inset">
+									<p>Tags:</p>
+									<ul>
+										{block:Tags}
+											<li>
+												<a href="{TagURL}">#{Tag}</a>
+											</li>
+										{/block:Tags}
+									</ul>
+								</div>
+							{/block:HasTags}
+							{block:RebloggedFrom}
+								<span class="inset">
+									<p>Posted by&nbsp;</p>
+									<span><a href="{ReblogRootURL}">{ReblogRootName}</a></span>
+									<p>Reblogged via&nbsp;</p>
+									<span><a href="{ReblogParentURL}">{ReblogParentName}</a></span>
+								</span>
+							{/block:RebloggedFrom}
+							<span class="inset">
+								<ul class="metadata">
+									{block:Date}
+										<li>{TimeAgo}, {DayofMonth} {Month} {Year}</li>
+									{/block:Date}
+									<li>{ReblogButton}</li>
+									<li>{LikeButton}</li>
+									<li><a href="{Permalink}">{NoteCountWithLabel}</a></li>
+								</ul>
+							</span>
+						</div>
+					{/block:Link}
+
+					{block:Chat}
+						<div class="post">
+							{block:Title}{Title}{/block:Title}
+							<table>
+								{block:Lines}
+								<tr>
+									<th>{block:Label}{Label}{/block:Label}</th>
+									<td>{Line}</td>
+								</tr>
+								{/block:Lines}
+							</table>
+						</div>
+						<div class="footer">
+							{block:HasTags}
+								<div class="inset">
+									<p>Tags:</p>
+									<ul>
+										{block:Tags}
+											<li>
+												<a href="{TagURL}">#{Tag}</a>
+											</li>
+										{/block:Tags}
+									</ul>
+								</div>
+							{/block:HasTags}
+							{block:RebloggedFrom}
+								<span class="inset">
+									<p>Posted by&nbsp;</p>
+									<span><a href="{ReblogRootURL}">{ReblogRootName}</a></span>
+									<p>Reblogged via&nbsp;</p>
+									<span><a href="{ReblogParentURL}">{ReblogParentName}</a></span>
+								</span>
+							{/block:RebloggedFrom}
+							<span class="inset">
+								<ul class="metadata">
+									{block:Date}
+										<li>{TimeAgo}, {DayofMonth} {Month} {Year}</li>
+									{/block:Date}
+									<li>{ReblogButton}</li>
+									<li>{LikeButton}</li>
+									<li><a href="{Permalink}">{NoteCountWithLabel}</a></li>
+								</ul>
+							</span>
+						</div>
+					{/block:Chat}
+
+					{block:Audio}
+						<div class="post">
+							{AudioPlayer}
+							{block:Caption}{Caption}{/block:Caption}
+						</div>
+						<div class="footer">
+							{block:HasTags}
+								<div class="inset">
+									<p>Tags:</p>
+									<ul>
+										{block:Tags}
+											<li>
+												<a href="{TagURL}">#{Tag}</a>
+											</li>
+										{/block:Tags}
+									</ul>
+								</div>
+							{/block:HasTags}
+							{block:RebloggedFrom}
+								<span class="inset">
+									<p>Posted by&nbsp;</p>
+									<span><a href="{ReblogRootURL}">{ReblogRootName}</a></span>
+									<p>Reblogged via&nbsp;</p>
+									<span><a href="{ReblogParentURL}">{ReblogParentName}</a></span>
+								</span>
+							{/block:RebloggedFrom}
+							<span class="inset">
+								<ul class="metadata">
+									{block:Date}
+										<li>{TimeAgo}, {DayofMonth} {Month} {Year}</li>
+									{/block:Date}
+									<li>{ReblogButton}</li>
+									<li>{LikeButton}</li>
+									<li><a href="{Permalink}">{NoteCountWithLabel}</a></li>
+								</ul>
+							</span>
+						</div>
+					{/block:Audio}
+
+					{block:Video}
+						<div class="post">
+							{Video-500}
+							{block:Caption}{Caption}{/block:Caption}
+						</div>
+						<div class="footer">
+							{block:HasTags}
+								<div class="inset">
+									<p>Tags:</p>
+									<ul>
+										{block:Tags}
+											<li>
+												<a href="{TagURL}">#{Tag}</a>
+											</li>
+										{/block:Tags}
+									</ul>
+								</div>
+							{/block:HasTags}
+							{block:RebloggedFrom}
+								<span class="inset">
+									<p>Posted by&nbsp;</p>
+									<span><a href="{ReblogRootURL}">{ReblogRootName}</a></span>
+									<p>Reblogged via&nbsp;</p>
+									<span><a href="{ReblogParentURL}">{ReblogParentName}</a></span>
+								</span>
+							{/block:RebloggedFrom}
+							<span class="inset">
+								<ul class="metadata">
+									{block:Date}
+										<li>{TimeAgo}, {DayofMonth} {Month} {Year}</li>
+									{/block:Date}
+									<li>{ReblogButton}</li>
+									<li>{LikeButton}</li>
+									<li><a href="{Permalink}">{NoteCountWithLabel}</a></li>
+								</ul>
+							</span>
+						</div>
+					{/block:Video}
+					{block:Answer}
+						<div class="post">
+							<div class="id">
+								<img src="{AskerPortraitURL-24}">
+								<h2>{Asker}:</h2>
+							</div>
+							<h1>{Question}</h1>
+							{block:Answerer}
+								<div class="id">
+									<img src="{AnswererPortraitURL-24}">
+									<h2>{Answerer}:</h2>
+								</div>
+							{/block:Answerer}
+							<p>{Answer}</p>
+						</div>
+						<div class="footer">
+							{block:HasTags}
+								<div class="inset">
+									<p>Tags:</p>
+									<ul>
+										{block:Tags}
+											<li>
+												<a href="{TagURL}">#{Tag}</a>
+											</li>
+										{/block:Tags}
+									</ul>
+								</div>
+							{/block:HasTags}
+							{block:RebloggedFrom}
+								<span class="inset">
+									<p>Posted by&nbsp;</p>
+									<span><a href="{ReblogRootURL}">{ReblogRootName}</a></span>
+									<p>Reblogged via&nbsp;</p>
+									<span><a href="{ReblogParentURL}">{ReblogParentName}</a></span>
+								</span>
+							{/block:RebloggedFrom}
+							<span class="inset">
+								<ul class="metadata">
+									{block:Date}
+										<li>{TimeAgo}, {DayofMonth} {Month} {Year}</li>
+									{/block:Date}
+									<li>{ReblogButton}</li>
+									<li>{LikeButton}</li>
+									<li><a href="{Permalink}">{NoteCountWithLabel}</a></li>
+								</ul>
+							</span>
+						</div>
+					{/block:Answer}
+				</div>
+				{/block:Posts}
+			</div>
+		</div>
+	</div>
+</body>
+	
+</html>

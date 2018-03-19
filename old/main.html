@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+		
+	<head>
+		<meta charset="utf-8">
+		<!--Fonts and such from Google-->
+		<link href="https://fonts.googleapis.com/css?family=Contrail+One|VT323" rel="stylesheet">
+		<link rel="stylesheet" href="../styles.css">
+		<style>
+			/*Just to make it easier for me in testing*/
+		</style>
+		<title>{Title}</title>
+	</head>
+	
+	<body>
+		<header>
+			<div id="intro">
+				<img id="avatar" src="{PortraitURL-128}">
+				<h1><a href="{BlogURL}">{Title}</a></h1>
+				<h2>{Description}</h2>
+			</div>
+		</header>
+
+		<div id="navbar">
+			<tr>
+				<td class="command"><a href="https://tumblr.com/dashboard">Dashboard</a></td>
+				<td class="command"><a href="https://tumblr.com/message/deadarkadia">Message</a></td>
+				<td class="command"><a href="https://tumblr.com/follow/deadarkadia">Follow</a></td>
+			</tr>
+		</div>
+		<div id="titlebar">
+			<img src="{PortraitURL-30}">
+			<p>{Title}</p>
+		</div>
+		<div id="sidebar">
+			<p>sample</p>
+			{block:HasPages}
+				<div class="page">
+				{block:Pages}
+					<a href="{URL}">{Label}</a>
+				{/block:Pages}
+				</div>
+			{/block:HasPages}
+		</div>
+		<div class="main">
+			{block:Posts}
+			
+				{block:Text}
+				<div class="post">
+					{block:Title}
+						<h3>
+							<a href="{Permalink}">{Title}</a>
+						</h3>
+					{/block:Title}
+					{Body}
+					<ul class="like-reblog">
+						<li>{LikeButton}</li>
+						<li>{ReblogButton}</li>
+						<li>{block:NoteCount}<a href="../{Permalink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}</li>
+						<li>{block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}</li>
+
+					</ul>
+				</div>
+				{block:PostNotes}{PostNotes}{/block:PostNotes}
+				{/block:Text}
+
+				{block:Photo} 
+				<div class="post">	
+					<img src="{PhotoURL-500}">
+					{block:Caption}{Caption}{/block:Caption}
+					<ul class="like-reblog">
+						<li>{LikeButton}</li>
+						<li>{ReblogButton}</li>
+						<li>{block:NoteCount}<a href="../{Permalink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}</li>
+						<li>{block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}</li>
+					</ul>
+				</div>
+				{block:PostNotes}{PostNotes}{/block:PostNotes}
+				{/block:Photo}
+
+				{block:Quote}
+				<div class="post">
+					{Quote}
+				{block:Source}<br>&mdash;{Source}{/block:Source}
+					<ul class="like-reblog">
+						<li>{LikeButton}</li>
+						<li>{ReblogButton}</li>
+						<li>{block:NoteCount}<a href="../{Permalink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}</li>
+						<li>{block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}</li>
+					</ul>
+				</div>
+				{block:PostNotes}{PostNotes}{/block:PostNotes}
+				{/block:Quote}
+
+				{block:Link}
+				<div class="post">
+					<a href="{URL}" {Target}>{Name}</a>
+					{block:Description}{Description}{/block:Description}
+					<ul class="like-reblog">
+						<li>{LikeButton}</li>
+						<li>{ReblogButton}</li>
+						<li>{block:NoteCount}<a href="../{Permalink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}</li>
+						<li>{block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}</li>
+					</ul>
+				</div>
+				{block:PostNotes}{PostNotes}{/block:PostNotes}
+				{/block:Link}
+
+				{block:Chat}
+				<div class="post">
+					{block:Title}{Title}{/block:Title}
+					<table>
+						{block:Lines}
+						<tr>
+							<th>{block:Label}{Label}{/block:Label}</th>
+							<td>{Line}</td>
+						</tr>
+						{/block:Lines}
+					</table>
+					<ul class="like-reblog">
+						<li>{LikeButton}</li>
+						<li>{ReblogButton}</li>
+						<li>{block:NoteCount}<a href="../{Permalink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}</li>
+						<li>{block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}</li>
+					</ul>
+				</div>
+				{block:PostNotes}{PostNotes}{/block:PostNotes}
+				{/block:Chat}
+
+				{block:Audio}
+				<div class="post">
+					{AudioPlayer}
+				{block:Caption}{Caption}{/block:Caption}
+					<ul class="like-reblog">
+						<li>{LikeButton}</li>
+						<li>{ReblogButton}</li>
+						<li>{block:NoteCount}<a href="../{Permalink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}</li>
+						<li>{block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}</li>
+					</ul>
+				</div>
+				{block:PostNotes}{PostNotes}{/block:PostNotes}
+				{/block:Audio}
+
+				{block:Video}
+				<div class="post">
+					{Video-500}
+					{block:Caption}{Caption}{/block:Caption}
+					<ul class="like-reblog">
+						<li>{LikeButton}</li>
+						<li>{ReblogButton}</li>
+						<li>{block:NoteCount}<a href="../{Permalink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}</li>
+						<li>{block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}</li>
+					</ul>
+				</div>
+				{block:PostNotes}{PostNotes}{/block:PostNotes}
+				{/block:Video}
+
+			{/block:Posts}
+
+			{block:Pagination}
+				{block:PreviousPage}{/block:PreviousPage}
+				{block:NextPage}{/block:NextPage}
+			{/block:Pagination}
+		</div>
+		<script>
+			function getMessageURL() {
+				var url = {BlogURL};
+				var iDot = url.indexOf('.');
+				var retUrl = "https://tumblr.com/message/" + url.substring(0, iDot);
+				return retUrl;
+			}
+		</script>
+	</body>
+	
+
+</html>
+	
