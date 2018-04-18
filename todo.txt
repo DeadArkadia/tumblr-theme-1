@@ -1,0 +1,6 @@
+
+2018.04.17
+fix issue where pages that are not posts have "post#" at the top
+fix the searchbar
+format the sidebar (where the links are)
+add copyright dates to the sidebar
