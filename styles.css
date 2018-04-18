@@ -1,6 +1,16 @@
 body {
+	position: relative;
+	padding: 1%;
+	align-content: center;
 	font-family: Helvetica, Arial, "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", "sans-serif";
-	overflow: hidden;
+	overflow: auto;
+	background-image: url("{HeaderImage}");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-color: {BackgroundColor};
+	word-wrap: break-word;
 }
 .opbar {
 	height: 26px;
@@ -31,7 +41,7 @@ p, li, ul {
 	display: inline;
 }
 .button {
-	background-color: #aaa;
+	background-color: {BackgroundColor};
 	height: 24px;
 	border-top: 2px outset white;
 	border-left: 2px outset white;
@@ -43,19 +53,24 @@ input[type=text], .button {
 	font-family: "VT323", Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
 }
 #info {
-	height: auto;
-	width: 200px;
-	position: fixed;
+	width: 15vw;
 	float: left;
-	margin-top: 32px;
+	margin-top: 5%;
+	overflow: hidden;
 }
-#info img {
-	margin-top: 10px;
-	margin-right: auto;
-	margin-left: 8px;
-	margin-bottom: 4px;
-	display: block;
-	outline: 2px solid black;
+#infocontainer {
+    float: center;
+    margin: auto;
+    max-width: 384px;
+	width: auto;
+	height: auto;
+	padding: 4%;
+}
+#infocontainer img {
+	max-width: 92%;
+	width: auto;
+	height: auto;
+
 }
 #postcontainer {
 	overflow: scroll;
@@ -76,7 +91,7 @@ input[type=text], .button {
 }
 .post a {
 	text-decoration: underline;
-	color: blue;
+	color: {AccentColor};
 }
 #photo img {
 	display: block;
@@ -95,13 +110,13 @@ input[type=text], .button {
 	display: inline-block;
 	top: 0px;
 	position: fixed;
-	margin: 24px 56px;
-	left: 15%;
+	left: 20%;
 }
 
 .window {
 	border: 2px solid black;
-	outline: 4px solid #aaaaaa;
+	outline: 4px solid {BackgroundColor};
+	margin: 1%;
 	background-color: white;
 	height: auto;
 }
@@ -114,30 +129,28 @@ input[type=text], .button {
 }
 .titlebar {
 	height: 24px;
-	border-left: 2px solid #aaa;
-	border-right: 2px solid #aaa;
-	border-bottom: 4px solid #aaa;
-	border-top: 2px solid #aaa;
-	background-color: navy;
+	border-left: 2px solid {BackgroundColor};
+	border-right: 2px solid {BackgroundColor};
+	border-bottom: 4px solid {BackgroundColor};
+	border-top: 2px solid {BackgroundColor};
+	background-color: {AccentColor};
 	font-family: "VT323", Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
 	font-size: 24px;
 	width: auto;
 	text-align: center;
 	color: white;
 }
-body {
-	background-color: #dddddd;
-	word-wrap: break-word;
-}
+
 #container {
-	height: 90vh;
+	height: 80vh;
 }
 .footer {
 	display: block;
+	overflow: hidden;
 	font-family: "VT323", Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
 	padding: 3px;
 	border-top: 1px solid black;
-	background-color: #aaa;
+	background-color: {BackgroundColor};
 }
 .footer table {
 	width: 100%;
@@ -174,6 +187,7 @@ body {
 	border-right: 1px solid white;
 }
 .id h1, img {
+	width: 48px;
 	padding: 10px;
 	float: left;
 }

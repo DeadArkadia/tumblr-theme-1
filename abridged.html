@@ -5,6 +5,8 @@
 	<meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css?family=Geo|VT323" rel="stylesheet">
 	<link href="styles.css" rel="stylesheet" type="text/css">
+	<style>
+</style>
 	<title>{Title}</title>
 </head>
 
@@ -13,15 +15,22 @@
 		<div class="titlebar">
 			<span>Info</span>
 		</div>
-		<img src="{PortraitURL-128}">
-		<div class="text">
-			<h2><a href="{BlogURL}">{Title}</a></h2>
-			<h3>{Description}</h3>
+		<div id="infocontainer">
+			{block:ShowAvatar}
+				<a href="{BlogURL}">
+					<img src="https://static.tumblr.com/mdm1cfn/Opgp7cuna/20180415_ariel_profile_picture_2048px.png">
+				</a>
+			{/block:ShowAvatar}
+			<div class="text">
+				<h2><a href="{BlogURL}">{Title}</a></h2>
+				<h3>{Description}</h3>
+			</div>
 		</div>
+		
 	</div>
 	<div id="fileman" class="window">
 		<div class="titlebar">
-			<span>{Title}</span>
+			<span><a href="{BlogURL}">{Title}</a></span>
 		</div>
 		<div class="opbar">
 			<ul>
@@ -31,7 +40,7 @@
 					<li><a href="/ask">{AskLabel}</a></li>
 				{/block:AskEnabled}
 			</ul>
-			
+
 			<!--<table>
 				<tr>
 					<td height="24"><a href="http://tumblr.com/follow/deadarkadia">Follow</a></td>
@@ -89,7 +98,7 @@
 							{/block:Caption}
 						</div>
 					{/block:Photo}
-					
+
 					{block:Panorama}
 						<div class="post">
 							<img src="{PhotoURL-Panorama}">
@@ -109,7 +118,7 @@
 						</div>
 						{/block:Photos}
 					{/block:Photoset}
-					
+
 					{block:Quote}
 						<div class="post">
 							{Quote}
@@ -156,20 +165,20 @@
 					{block:Answer}
 						<div class="post">
 							<div class="id">
-								<img src="{AskerPortraitURL-24}">
+								<img src="{AskerPortraitURL-128}">
 								<h2>{Asker}:</h2>
 							</div>
 							<h1>{Question}</h1>
 							{block:Answerer}
 								<div class="id">
-									<img src="{AnswererPortraitURL-24}">
+									<img src="{AnswererPortraitURL-128}">
 									<h2>{Answerer}:</h2>
 								</div>
 							{/block:Answerer}
 							<p>{Answer}</p>
 						</div>
 					{/block:Answer}
-					
+
 					<div class="footer">
 						{block:HasTags}
 						<table>
@@ -197,7 +206,7 @@
 								<td height="12" style="width: 12px">{LikeButton}</td>
 								<td height="12" style="width: 12px">{ReblogButton}</td>
 								{block:Date}
-									<td height="12" style="text-align: right">{12HourWithZero}:{Minutes}:{Seconds}{CapitalAmPm} {DayofMonth} {ShortMonth} {Year}</td>
+									<td height="12" style="text-align: right">{12HourWithZero}:{Minutes}{CapitalAmPm} {DayofMonth} {ShortMonth} {Year}</td>
 								{/block:Date}
 							</tr>
 						</table>
