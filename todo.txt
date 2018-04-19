@@ -1,7 +1,10 @@
 
 2018.04.18
 implement better tag pages [done]
-
+make the notes indicator into a permalink
+center the timestamp on each post
+make the timestamp into a hyperlink?
+clean the css. please.
 
 2018.04.17
 fix issue where pages that are not posts have "post#" at the top [removed]
