@@ -40,39 +40,20 @@
 					<li><a href="/ask">{AskLabel}</a></li>
 				{/block:AskEnabled}
 			</ul>
+		</div>
 
-			<!--<table>
-				<tr>
-					<td height="24"><a href="http://tumblr.com/follow/deadarkadia">Follow</a></td>
-					<td height="24"><a href="http://tumblr.com/message/deadarkadia">Message</a></td>
-					{block:AskEnabled}
-						<td><a href="/ask">{AskLabel}</a></td>
-					{/block:AskEnabled}
-					<td height="24"><form action="/search" method="get">
-						<input type="text" name="q" value="{SearchQuery}"/>
-						<input type="submit" value="Search"/>
-					</form></td>
-				</tr>
-			</table>-->
-		</div>
-		<div class="opbar">
-			<form action="/search" method="get" style="margin: 0; padding: 0;">
-				<p>
-					<input type="text" class="query" name="q" value="{SearchQuery}"/>
-					<input type="submit" class="button" value="Find"/>
-				</p>
-			</form>
-		</div>
 		<div id="container">
 			<div id="sidebar">
-				{block:HasPages}
-					<ul id="pageList">
-						{block:Pages}
-							<il><a href="{URL}">{Label}</a></il>
-						{/block:Pages}
-					</ul>
-				{/block:HasPages}
-		  </div>
+				<ol id="pagelist" style="padding:12px">
+				    <li><a href="{BlogURL}">Home</a><br></li>
+				    <li><a href="{BlogURL}tagged/art">My Art</a><br></li>
+					{block:Pages}
+						<li><a href="{URL}">{Label}</a><br></li>
+					{/block:Pages}
+					<li><br></li>
+					<li style="color:gray;font-size:12px">Copyright @{Title} {CopyrightYears}</li>
+				</ol>
+			</div>
 			<div id="postcontainer">
 				{block:Posts}
 				<div id="posts" class="window">
@@ -121,8 +102,10 @@
 
 					{block:Quote}
 						<div class="post">
-							{Quote}
-							{block:Source}<br>&mdash;{Source}{/block:Source}
+						    <div class="quote">
+							    {Quote}
+							</div>
+						    {block:Source}&mdash;{Source}{/block:Source}
 						</div>
 					{/block:Quote}
 
@@ -163,22 +146,31 @@
 						</div>
 					{/block:Video}
 					{block:Answer}
-						<div class="post">
-							<div class="id">
-								<img src="{AskerPortraitURL-128}">
-								<h2>{Asker}:</h2>
-							</div>
-							<h1>{Question}</h1>
-							{block:Answerer}
-								<div class="id">
-									<img src="{AnswererPortraitURL-128}">
-									<h2>{Answerer}:</h2>
-								</div>
-							{/block:Answerer}
-							<p>{Answer}</p>
+						<div class="post" id="ask">
+					        <div class="id">
+								<img src="{AskerPortraitURL-40}" width="40" height="40">
+								<div>{Asker}:</div>
+								
+						    </div>
+							<div class="quote">
+							    <p>{Question}</p>
+						    </div>
+						    {block:Answerer}
+							    <div class="id">
+								    <img src="{AnswererPortraitURL-40}" width="40" height="40">
+								    <div>{Answerer}:</div>
+							    </div>
+							    <div class="quote">
+							        <p>{Answer}</p>
+							    </div>
+						    {/block:Answerer}
+							<p>{Replies}</p>
 						</div>
 					{/block:Answer}
-
+					
+					{block:PermalinkPage}
+					    {PostNotes-16}
+					{/block:PermalinkPage}
 					<div class="footer">
 						{block:HasTags}
 						<table>
@@ -210,36 +202,6 @@
 								{/block:Date}
 							</tr>
 						</table>
-						<!--{block:HasTags}
-							<div class="inset">
-								<p>Tags:</p>
-								<ul>
-									{block:Tags}
-										<li>
-											<a href="{TagURL}">#{Tag}</a>
-										</li>
-									{/block:Tags}
-								</ul>
-							</div>
-						{/block:HasTags}
-						{block:RebloggedFrom}
-							<span class="inset">
-								<p>Posted by&nbsp;</p>
-								<span><a href="{ReblogRootURL}">{ReblogRootName}&nbsp;</a></span>
-								<p>Reblogged via&nbsp;</p>
-								<span><a href="{ReblogParentURL}">{ReblogParentName}</a></span>
-							</span>
-						{/block:RebloggedFrom}
-						<span class="inset">
-							<ul class="metadata">
-								{block:Date}
-									<li>{TimeAgo}, {DayofMonth} {Month} {Year}</li>
-								{/block:Date}
-								<li>{ReblogButton}</li>
-								<li>{LikeButton}</li>
-								<li><a href="{Permalink}">{NoteCountWithLabel}</a></li>
-							</ul>
-						</span>-->
 					</div>
 				</div>
 				{/block:Posts}

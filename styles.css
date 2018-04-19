@@ -57,6 +57,7 @@ input[type=text], .button {
 	float: left;
 	margin-top: 5%;
 	overflow: hidden;
+	position: fixed;
 }
 #infocontainer {
     float: center;
@@ -70,7 +71,8 @@ input[type=text], .button {
 	max-width: 92%;
 	width: auto;
 	height: auto;
-
+    padding: 10px;
+	float: left;
 }
 #postcontainer {
 	overflow: scroll;
@@ -94,10 +96,13 @@ input[type=text], .button {
 	color: {AccentColor};
 }
 #photo img {
-	display: block;
-	margin: 0px auto;
-	width: 90%;
-	height: auto;
+    float: left;
+    height: auto;
+    width: 100%;
+    margin-bottom: 12px;
+}
+#ask {
+    display: block;
 }
 .text {
 	padding: 8px;
@@ -114,8 +119,8 @@ input[type=text], .button {
 }
 
 .window {
-	border: 2px solid black;
-	outline: 4px solid {BackgroundColor};
+	border: 5px ridge {AccentColor};
+	// outline: 4px solid {BackgroundColor};
 	margin: 1%;
 	background-color: white;
 	height: auto;
@@ -186,8 +191,23 @@ input[type=text], .button {
 	border-bottom: 1px solid white;
 	border-right: 1px solid white;
 }
-.id h1, img {
-	width: 48px;
-	padding: 10px;
-	float: left;
+.id {
+    line-height: 40px;
+    height: 40px;
+}
+.id div {
+    vertical-align: middle;
+    padding: 0px 12px;
+    display: inline-block;
+}
+.id img {
+    display: inline-block;
+    vertical-align: bottom;
+}
+.quote {
+    border-left: 5px solid gray;
+    margin: 12px;
+    padding: 6px;
+    width: auto;
+    height: auto;
 }
